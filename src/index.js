@@ -12,6 +12,8 @@ import { Provider } from 'react-redux';
 
 import { Router, Route, hashHistory } from 'react-router';
 
+import ContactService from './api/ContactService'
+
 let store = createStore(Reducer);
 
 ReactDOM.render(
