@@ -9,7 +9,7 @@ export default class ContactService {
     getAll() {
         return new Promise((resolve, reject ) =>
         {
-            setTimeout(() => resolve(this.contacts), 300)
+            setTimeout(() => resolve(this.contacts), 0)
         });
     }
 
@@ -31,10 +31,11 @@ export default class ContactService {
                 }
             })
 
-            if (elIndex) {
+            if (elIndex > -1) {
                 this.contacts.contacts.splice(elIndex, 1, contact )
                 resolve(this.contacts);
             }
+            else
             reject()
         });
     }
