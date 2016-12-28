@@ -2,27 +2,35 @@ import React, { Component } from 'react'
 import Contact from './Contact'
 import { connect } from 'react-redux';
 import ContactService from '../api/ContactService';
-import {store} from '../index';
+import store from '../store';
 import { GetContacts } from '../actions'
 
 class ContactList extends Component {
     componentDidMount() {
-        ContactService.getAll().then( contact => 
-            store.dispatch(GetContacts(contact))
+        var service = new ContactService();
+        service.getAll().then( result => 
+            {
+                store.dispatch(GetContacts(result.contacts))
+            }    
         )    
     }
 
     render() {
         
         return (
-            <table>
-                {this.props.contacts.map( (item, index) => <Contact key={index} contact={item}/>)}
-            </table>
+            <div className ="container">
+                <table className ="table">
+                    <tbody>
+                        {this.props.contacts.map( (item, index) => <Contact key={index} contact={item}/>)}
+                    </tbody>
+                </table>
+                <a href="#/contacts/new">Add New Contact</a>
+            </div>
         ); 
     }
 }
 
 export default connect(
-    state => state, 
+    state => state , 
    /* mapDispatchToProps*/)
 (ContactList);

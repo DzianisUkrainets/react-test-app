@@ -7,7 +7,7 @@ export default class ContactService {
     }
 
     getAll() {
-        return new Promise(() => (resolve, reject ) =>
+        return new Promise((resolve, reject ) =>
         {
             setTimeout(() => resolve(this.contacts), 300)
         });

@@ -5,16 +5,11 @@ import App from './components/App';
 import NewContact from './components/NewContact';
 import EditContact from './components/EditContact';
 
-import { createStore}  from 'redux';
-import Reducer from './reducers';
-
 import { Provider } from 'react-redux';
-
 import { Router, Route, hashHistory } from 'react-router';
+import store from './store';
+import 'bootstrap/dist/css/bootstrap.css';
 
-import ContactService from './api/ContactService'
-
-let store = createStore(Reducer);
 
 ReactDOM.render(
   <Provider store={store}>
