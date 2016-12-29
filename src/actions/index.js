@@ -1,4 +1,4 @@
-import { GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT, UPDATE_CONTACT} from '../constants'
+import { GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT, UPDATE_CONTACT} from './constants'
 
 export const GetContacts = contacts => {
     return {

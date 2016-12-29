@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ContactList from './ContactList'
 
-class App extends Component {
-  render() {
-    return <ContactList />
-  }
+const App = (props) => {
+  return(
+    <ContactList />
+  )
 }
 
 export default App;

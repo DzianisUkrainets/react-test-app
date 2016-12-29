@@ -1,7 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ContactForms from './ContactForms';
 
-export default class NewContact extends Component {
-    render() {
-        return <h1> Add new </h1>; 
-    }
-}
+const NewContact = (props) => {
+    return(
+        <div className="container">
+            <h1> Add contact </h1>
+            <form>
+                <ContactForms contact={{}}/>
+                <button type="submit" className="btn btn-default">Add New Contact</button>
+            </form>
+        </div>
+    )
+};
+
+export default NewContact;

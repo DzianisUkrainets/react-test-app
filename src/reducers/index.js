@@ -1,8 +1,10 @@
-import { GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT, UPDATE_CONTACT} from '../constants';
+import { GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT, UPDATE_CONTACT} from '../actions/constants';
+import ContactService from '../api/ContactService';
+import * as samples from '../api/samples.json';
 
-const nameInitialState = { contacts: [], currentContact: {} }
+const initialState = { contacts: samples.contacts, currentContact: {} };
 
-export default (state = nameInitialState, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case GET_CONTACTS:
             return  Object.assign({}, state, {contacts: action.contacts})
