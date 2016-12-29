@@ -31,10 +31,7 @@ class EditContact extends Component {
         return (
             <div className="container">
                 <h1> Edit Contact </h1>
-                <form onSubmit={this.submit.bind(this)} onChange={this.onChange.bind(this)}>
-                    <ContactForms contact={this.state}/>
-                    <button type="submit" className="btn btn-default">Submit</button>
-                </form>
+                <ContactForms initialValues= {this.state} buttonText="Save"/>                
             </div>
             );
     }
@@ -55,6 +52,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-    state => { return {currentContact: state.currentContact} } , 
+    state => { return {currentContact: state.contact.currentContact} } , 
     mapDispatchToProps)
 (EditContact);

@@ -29,6 +29,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-    state => state , 
+    state => state.contact , 
     mapDispatchToProps)
 (Contact);

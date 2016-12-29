@@ -1,23 +1,32 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 
 const ContactForms = (props) => {
-    const {first_name, last_name, email} = props.contact;
+    //const {first_name, last_name, email, buttonText} = props.contact;
     return(
-        <div>
+        <form>
             <div className="form-group">
                 <label htmlFor="firstname">First Name</label>
-                <input className="form-control" id="firstname" name="first_name" type="text" defaultValue={first_name}/>
+                <Field className="form-control" component="input" id="firstname" name="first_name" type="text"/>
             </div>
             <div className="form-group">
                 <label htmlFor="lastname">Last Name</label>
-                <input className="form-control" id="lastname" type="text" name="last_name" defaultValue={last_name}/>
+                <Field className="form-control" component="input" id="lastname" type="text" name="last_name" />
             </div>
             <div className="form-group">
                 <label htmlFor="email">E-mail</label>
-                <input className="form-control" id="email" type="text" name="email" defaultValue={email}/>
+                <Field className="form-control" component="input" id="email" type="email" name="email" />
             </div>
-        </div>
+            <button type="submit" className="btn btn-default">{props.buttonText}</button>
+        </form>
     )
 }
 
-export default ContactForms;
+export default reduxForm({
+  form: 'contact'
+})(ContactForms);;
+/*
+export default connect(
+    (state, ownProps) => { return {initialValues: ownProps.contact} }
+)(Form)*/

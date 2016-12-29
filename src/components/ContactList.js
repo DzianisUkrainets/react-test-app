@@ -19,6 +19,6 @@ const ContactList = (props) => {
 }
 
 export default connect(
-    state => state , 
+    state => state.contact , 
     )
 (ContactList);
