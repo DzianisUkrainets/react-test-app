@@ -1,29 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Contact from './Contact'
 import { connect } from 'react-redux';
-import ContactService from '../api/ContactService';
-import store from '../store';
-import { GetContacts } from '../actions'
+import { Link } from 'react-router';
 
 const ContactList = (props) => {
-
-    const handleSubmit = values => {
-        props.updateContact(values);
-        props.router.push('/');
-    };
-
     return(
-        <div className ="container">
-            <table className ="table">
+        <div className="container">
+            <table className="table">
                 <tbody>
                     {props.contacts.map( (item, index) => <Contact key={index} contact={item}/>)}
                 </tbody>
             </table>
-            <a href="#/contacts/new">Add New Contact</a>
+            <Link href="#/contacts/new" className="btn btn-primary">Add New Contact</Link>
         </div>
     )
 }
 
 export default connect(
-    state => state.contact)
-(ContactList);
+    state => state.contact)(ContactList);

@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router';
 import store from './store';
 import 'bootstrap/dist/css/bootstrap.css';
+import './css/index.css';
 
 
 ReactDOM.render(

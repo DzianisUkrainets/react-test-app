@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { EditContact as Edit } from '../actions'
-import ContactService from '../api/ContactService';
+import { EditContact as Edit } from '../actions/actions'
 import ContactForm from './ContactForm';
 
 const EditContact = (props) => {
@@ -15,7 +14,7 @@ const EditContact = (props) => {
     return(
         <div className="container">
             <h1> Edit Contact </h1>
-            <ContactForm initialValues= {{ id, first_name, last_name, email }} onSubmit={handleSubmit} buttonText="Save"/>                
+            <ContactForm initialValues={{ id, first_name, last_name, email }} onSubmit={handleSubmit} buttonText="Save"/>                
         </div>
     )
 }
@@ -28,9 +27,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-const getContactById = (contacts, id) => contacts.find(item => item.id == id);
+const getContactById = (contacts, id) => contacts.find(item => item.id === id);
 
 export default connect(
     (state, ownProps) => getContactById(state.contact.contacts, ownProps.params.contactId), 
-        mapDispatchToProps)
-(EditContact);
+        mapDispatchToProps)(EditContact);

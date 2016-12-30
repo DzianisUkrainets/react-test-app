@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactForm from './ContactForm';
 import { connect } from 'react-redux';
-import { AddContact } from '../actions';
+import { AddContact } from '../actions/actions';
 
 const NewContact = (props) => {
     const { id, first_name, last_name, email} = props;
@@ -29,5 +29,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 export default connect(
     (state) => { return { id: -1, first_name: '', last_name: '', email: '' } },
-    mapDispatchToProps)
-(NewContact);
+    mapDispatchToProps)(NewContact);
