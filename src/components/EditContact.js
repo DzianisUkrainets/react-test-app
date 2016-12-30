@@ -5,6 +5,7 @@ import ContactService from '../api/ContactService';
 import ContactForm from './ContactForm';
 
 const EditContact = (props) => {
+    const { id, first_name, last_name, email} = props;
     
     const handleSubmit = values => {
         props.updateContact(values);
@@ -14,7 +15,7 @@ const EditContact = (props) => {
     return(
         <div className="container">
             <h1> Edit Contact </h1>
-            <ContactForm initialValues= {props} onSubmit={handleSubmit} buttonText="Save"/>                
+            <ContactForm initialValues= {{ id, first_name, last_name, email }} onSubmit={handleSubmit} buttonText="Save"/>                
         </div>
     )
 }
@@ -25,11 +26,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(Edit(contact));               
         }
     }
-};
+}
 
 const getContactById = (contacts, id) => contacts.find(item => item.id == id);
 
 export default connect(
-(state, ownProps) => getContactById(state.contact.contacts, ownProps.params.contactId), 
-    mapDispatchToProps)
+    (state, ownProps) => getContactById(state.contact.contacts, ownProps.params.contactId), 
+        mapDispatchToProps)
 (EditContact);
