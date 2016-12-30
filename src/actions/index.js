@@ -1,4 +1,4 @@
-import { GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT, UPDATE_CONTACT} from './constants'
+import { GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT } from './constants'
 
 export const GetContacts = contacts => {
     return {
@@ -17,13 +17,6 @@ export const AddContact = contact => {
 export const EditContact = contact => {
     return {
         type: EDIT_CONTACT,
-        contact
-    }
-}
-
-export const UpdateContact = contact => {
-    return {
-        type: UPDATE_CONTACT,
         contact
     }
 }
