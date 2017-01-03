@@ -11,7 +11,7 @@ const ContactList = (props) => {
                     {props.contacts.map( (item, index) => <Contact key={index} contact={item}/>)}
                 </tbody>
             </table>
-            <Link href="#/contacts/new" className="btn btn-primary">Add New Contact</Link>
+            <Link to="contacts/new" className="btn btn-primary">Add New Contact</Link>
         </div>
     )
 }

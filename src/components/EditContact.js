@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-const getContactById = (contacts, id) => contacts.find(item => item.id === id);
+const getContactById = (contacts, id) => contacts.find(item => item.id == id);
 
 export default connect(
     (state, ownProps) => getContactById(state.contact.contacts, ownProps.params.contactId), 

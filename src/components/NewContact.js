@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { AddContact } from '../actions/actions';
 
 const NewContact = (props) => {
-    const { id, first_name, last_name, email} = props;
+    const { first_name, last_name, email} = props;
 
     const handleSubmit = values => {
         props.addContact(values);
@@ -14,7 +14,7 @@ const NewContact = (props) => {
     return(
         <div className="container">
             <h1> Add contact </h1>
-            <ContactForm contact={{ id, first_name, last_name, email }} buttonText={'Add New Contact'} onSubmit={handleSubmit} />
+            <ContactForm contact={{ first_name, last_name, email }} buttonText={'Add New Contact'} onSubmit={handleSubmit} />
         </div>
     )
 }
@@ -28,5 +28,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 export default connect(
-    (state) => { return { id: -1, first_name: '', last_name: '', email: '' } },
+    (state) => { return { first_name: '', last_name: '', email: '' } },
     mapDispatchToProps)(NewContact);
