@@ -7,7 +7,7 @@ const updateContact = (state, contact) => {
     const { id, first_name, last_name, email} = contact;
     let index = state.contacts.findIndex(item => item.id === contact.id);
     let contacts = state.contacts;
-    return { contacts: [...contacts.slice(0, index), { id, first_name, last_name, email }, ...contacts.slice(index + 1)] };
+    return index > -1 ? { contacts: [...contacts.slice(0, index), { id, first_name, last_name, email }, ...contacts.slice(index + 1)] } : state;
 }
 
 const addContact = (state, contact) => {
