@@ -1,4 +1,4 @@
-import { GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT } from './constants'
+import { GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT, REMOVE_CONTACT } from './constants'
 
 export const GetContacts = contacts => {
     return {
@@ -20,4 +20,12 @@ export const EditContact = contact => {
         contact
     }
 }
+
+export const RemoveContact = id => {
+    return {
+        type: REMOVE_CONTACT,
+        id
+    }
+}
+
 
