@@ -13,7 +13,7 @@ const updateContact = (state, contact) => {
 const addContact = (state, contact) => {
     const { first_name, last_name, email} = contact;
     let contacts = state.contacts;
-    const newId = contacts[contacts.length - 1].id + 1;
+    const newId = new Date().getTime();
     return { contacts: [...contacts, { id: newId, first_name, last_name, email }] };     
 }
 

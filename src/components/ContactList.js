@@ -8,7 +8,7 @@ const ContactList = (props) => {
         <div className="container">
             <table className="table">
                 <tbody>
-                    {props.contacts.map( (item, index) => <Contact key={index} contact={item}/>)}
+                    {props.contacts.map( item => <Contact key={item.id} contact={item}/>)}
                 </tbody>
             </table>
             <Link to="contacts/new" className="btn btn-primary">Add New Contact</Link>
