@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Contact from './Contact'
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
@@ -14,6 +14,15 @@ const ContactList = (props) => {
             <Link to="contacts/new" className="btn btn-primary">Add New Contact</Link>
         </div>
     )
+}
+
+ContactList.propTypes = {
+    contacts: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        first_name: PropTypes.string.isRequired,
+        last_name: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+    })).isRequired
 }
 
 export default connect(

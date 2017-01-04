@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ContactForm from './ContactForm';
 import { connect } from 'react-redux';
 import { AddContact } from '../actions/actions';
@@ -14,9 +14,16 @@ const NewContact = (props) => {
     return(
         <div className="container">
             <h1> Add contact </h1>
-            <ContactForm contact={{ first_name, last_name, email }} buttonText={'Add New Contact'} onSubmit={handleSubmit} />
+            <ContactForm initialValues={{ first_name, last_name, email }} buttonText={'Add New Contact'} onSubmit={handleSubmit} />
         </div>
     )
+}
+
+NewContact.PropTypes = {
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+    email: PropTypes.string,
+    addContact: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { required, maxLength, email } from './validators';
 
@@ -19,6 +19,16 @@ const ContactForm = (props) => {
             <button type="submit" className="btn btn-default">{buttonText}</button>
         </form>
     )
+}
+
+ContactForm.PropTypes = {
+    initialValues: PropTypes.shape({
+        id: PropTypes.number, 
+        first_name: PropTypes.string,
+        last_name: PropTypes.string, 
+        email: PropTypes.string
+    }).isRequired,
+    buttonText: PropTypes.string.isRequired
 }
 
 export default reduxForm({

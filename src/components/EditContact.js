@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { EditContact as Edit } from '../actions/actions'
 import ContactForm from './ContactForm';
@@ -17,6 +17,14 @@ const EditContact = (props) => {
             <ContactForm initialValues={{ id, first_name, last_name, email }} onSubmit={handleSubmit} buttonText="Save"/>                
         </div>
     )
+}
+
+EditContact.propTypes = {
+    id: PropTypes.number.isRequired,
+    first_name: PropTypes.string.isRequired,
+    last_name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    updateContact: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
